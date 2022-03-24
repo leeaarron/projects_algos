@@ -1,8 +1,9 @@
-import { useState } from "react";
-import axios from "axios";
 import { Link, navigate } from "@reach/router";
+import axios from "axios";
+import { useEffect, useState } from "react";
+// import { updateGoal } from "../../../server/controllers/goal.controller";
 
-const GoalForm = () => {
+const UpdateGoal = (props) => {
     const [title, setTitle] = useState("");
     const [type, setType] = useState("");
     const [completeDate, setCompleteDate] = useState("");
@@ -11,12 +12,31 @@ const GoalForm = () => {
     const [taskThree, setTaskThree] = useState("");
     const [taskFour, setTaskFour] = useState("");
     const [taskFive, setTaskFive] = useState("");
+    const [id, setId] = useState("");
     const [errors, setErrors] = useState({});
 
-    const handleSubmit = (e) => {
+    useEffect(() => {
+        axios
+            .get(`http://localhost:8000/api/goal/${props.id}`)
+            .then((response) => {
+                console.log(response);
+                setTitle(response.data.title);
+                setType(response.data.type);
+                setCompleteDate(response.data.completeDate);
+                setTaskOne(response.data.taskOne);
+                setTaskTwo(response.data.taskTwo);
+                setTaskThree(response.data.taskThree);
+                setTaskFour(response.data.taskFour);
+                setTaskFive(response.data.taskFive);
+                setId(response.data._id);
+            })
+            .catch((err) => console.log(err.response));
+    }, []);
+
+    const handleUpdateGoal = (e) => {
         e.preventDefault();
         axios
-            .post("http://localhost:8000/api/goal", {
+            .put(`http://localhost:8000/api/goal/${id}`, {
                 title,
                 type,
                 completeDate,
@@ -27,27 +47,27 @@ const GoalForm = () => {
                 taskFive,
             })
             .then((response) => {
-                console.log("Success");
                 console.log(response);
-                navigate("/");
+                navigate(`/`);
             })
-            .catch((err) => {
-                console.log("Error");
-                console.log(err.response.data.err.errors);
-                setErrors(err.response.data.err.errors);
-            });
+            .catch((err) => 
+                console.log(err.response)
+            );
     };
 
     return (
         <div>
-            <h1>Add a New Goal</h1>
-            <Link to="/">Return to dashboard</Link>
-            <form onSubmit={(e) => handleSubmit(e)}>
+            <h1>Update Goal:</h1>
+            <Link to="/">Back to dashboard</Link>
+            <h3>{title}</h3>
+
+            <form onSubmit={(e) => handleUpdateGoal(e)}>
                 <div>
                     <label htmlFor="title">Goal:</label>
                     <input
                         type="text"
                         id="title"
+                        value={title}
                         onChange={(e) => setTitle(e.target.value)}
                     />
                 </div>
@@ -56,8 +76,8 @@ const GoalForm = () => {
                     <label htmlFor="type">Goal Type:</label>
                     <select name=""
                         id="type"
+                        value={type}
                         onChange={(e) => setType(e.target.value)}>
-                        <option>----------</option>
                         <option value="Career">Career</option>
                         <option value="Education">Education</option>
                         <option value="Financial">Financial</option>
@@ -73,6 +93,7 @@ const GoalForm = () => {
                     <input
                         type="text"
                         id="completeDate"
+                        value={completeDate}
                         onChange={(e) => setCompleteDate(e.target.value)}
                     />
                 </div>
@@ -81,6 +102,7 @@ const GoalForm = () => {
                     <input
                         type="text"
                         id="taskOne"
+                        defaultValue={taskOne}
                         onChange={(e) => setTaskOne(e.target.value)}
                     />
                 </div>
@@ -90,7 +112,7 @@ const GoalForm = () => {
                     <input
                         type="text"
                         id="taskTwo"
-                        placeholder="optional"
+                        defaultValue={taskTwo}
                         onChange={(e) => setTaskTwo(e.target.value)}
                     />
                 </div>
@@ -99,7 +121,7 @@ const GoalForm = () => {
                     <input
                         type="text"
                         id="taskThree"
-                        // placeholder="optional"
+                        defaultValue={taskThree}
                         onChange={(e) => setTaskThree(e.target.value)}
                     />
                 </div>
@@ -108,7 +130,7 @@ const GoalForm = () => {
                     <input
                         type="text"
                         id="taskFour"
-                        // placeholder="optional"
+                        defaultValue={taskFour}
                         onChange={(e) => setTaskFour(e.target.value)}
                     />
                 </div>
@@ -117,17 +139,18 @@ const GoalForm = () => {
                     <input
                         type="text"
                         id="taskFive"
-                        // placeholder="optional"
+                        defaultValue={taskFive}
                         onChange={(e) => setTaskFive(e.target.value)}
                     />
                 </div>
 
 
 
-                <button type="submit">Create Goal</button>
+                <button type="submit">Update Goal</button>
+                
             </form>
+
         </div>
     );
 };
-
-export default GoalForm;
+export default UpdateGoal;

@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import { Router } from '@reach/router';
+import GoalForm from './components/GoalForm';
+import DisplayAll from './components/DisplayAll';
+import DisplayOne from './components/DisplayOne';
+import UpdateGoal from './components/UpdateGoal';
+import Main from './view/Main';
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <GoalForm path="/new-goal"/>
+        <DisplayAll path="/"/>
+        <DisplayOne path="/goal/:id" />
+        <UpdateGoal path="/edit/:id" />
+        <Main path="/visions" />
+      </Router>
     </div>
+      // {/* // <BrowserRouter>
+      // //   <div className ="App">
+      // //     <Routes>
+      // //       <Route path="/visions" element={<Main />} />
+      // //       <Route path="/new-goal" element={<GoalForm />} />
+      // //       <Route path="/" element={<DisplayAll />} />
+      // //       <Route path="/goal/:id" element={<DisplayOne />} />
+      // //       <Route path="/edit/:id" element={<UpdateGoal />} />
+      // //     </Routes>
+      // //   </div>
+      // // </BrowserRouter> */}
   );
 }
 

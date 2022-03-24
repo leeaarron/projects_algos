@@ -8,6 +8,7 @@ app.use(express.urlencoded({ extended: true }));
 
 require("./config/mongoose.config");
 require("./routes/goal.routes")(app);
+require("./routes/vision.routes")(app);
 
 app.listen(8000, () => {
     console.log("Listening at Port 8000")

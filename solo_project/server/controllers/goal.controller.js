@@ -16,6 +16,7 @@ const addNewGoal = (req, res) => {
         }); //use for every error block inside of a controller
 };
 
+
 const getAllGoals = (req, res) => {
     Goal.find()
     .then((allGoals) => res.json(allGoals))

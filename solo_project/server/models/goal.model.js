@@ -14,7 +14,7 @@ const GoalSchema = new mongoose.Schema({
     completeDate: {
         type: String,
         //required: [true, "Projected completion date for goal is required"],
-        //     minlength: [3, "Pet description must be at least 3 characters"],
+        //minlength: [3, "Pet description must be at least 3 characters"],
     },
     taskOne: {
         type: String,

@@ -29,8 +29,8 @@ const VisionForm = (props) => {
     };
 
     return (
-        <div>
-            <h1>Vision Board</h1>
+        <div className="container">
+            <h1 className="goals-header">Vision Board</h1>
             <Link to="/">dashboard</Link>
             <h3>Add New Inspiration:</h3>
             <form onSubmit={(e) => handleSubmit(e)}>
@@ -44,9 +44,6 @@ const VisionForm = (props) => {
                 </div>
                 <button type="submit">Add Image</button>
             </form>
-            <br></br>
-            <hr></hr>
-            <br></br>
         </div>
     );
 };

@@ -20,7 +20,7 @@ const DisplayVisions = (props) => {
 
 
     return (
-        <div>
+        <div className="visions-container">
             <h2>Inspiration</h2>
             <div>
             {visionList.map((vision, index) => (

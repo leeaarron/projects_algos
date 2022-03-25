@@ -50,14 +50,16 @@ const UpdateGoal = (props) => {
                 console.log(response);
                 navigate(`/`);
             })
-            .catch((err) => 
-                console.log(err.response)
-            );
+            .catch((err) => {
+                console.log("Error");
+                console.log(err.response.data.err.errors);
+                setErrors(err.response.data.err.errors);
+            });
     };
 
     return (
-        <div>
-            <h1>Update Goal:</h1>
+        <div className="container">
+            <h1 className="goals-header">Update Goal:</h1>
             <Link to="/">Back to dashboard</Link>
             <h3>{title}</h3>
 
@@ -71,7 +73,7 @@ const UpdateGoal = (props) => {
                         onChange={(e) => setTitle(e.target.value)}
                     />
                 </div>
-                {errors.title ? <p>{errors.title.message}</p> : null}
+                {errors.title ? <p className="error-message">{errors.title.message}</p> : null}
                 <div>
                     <label htmlFor="type">Goal Type:</label>
                     <select name=""
@@ -87,7 +89,7 @@ const UpdateGoal = (props) => {
                         <option value="Other">Other</option>
                     </select>
                 </div>
-                {errors.type ? <p>{errors.type.message}</p> : null}
+                {errors.type ? <p className="error-message">{errors.type.message}</p> : null}
                 <div>
                     <label htmlFor="completeDate">Projected Complete Date:</label>
                     <input
@@ -106,7 +108,7 @@ const UpdateGoal = (props) => {
                         onChange={(e) => setTaskOne(e.target.value)}
                     />
                 </div>
-                {errors.taskOne ? <p>{errors.taskOne.message}</p> : null}
+                {errors.taskOne ? <p className="error-message">{errors.taskOne.message}</p> : null}
                 <div>
                     <label className="visually-hidden" htmlFor="taskTwo">Task Two</label>
                     <input

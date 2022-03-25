@@ -40,14 +40,17 @@ const DisplayAll = () => {
             <ul className="goals-list">
                 {goals.map((goal) => {
                     return (
-                        <li className="goal-list-item" key={goal._id}><Link to={`/goal/${goal._id}`}>{goal.title}</Link></li>
+                        <li className="goal-list-item" key={goal._id}><Link className="goals-list-link" to={`/goal/${goal._id}`}>{goal.title}</Link></li>
                     );
                 })}
             </ul>
             <button
                 onClick={() => navigate('/new-goal')}
             >Add New Goal</button>
-            <Link to="/visions">Vision Board</Link>
+            <button
+                onClick={() => navigate('/visions')}
+                >Vision Board</button>
+            {/* <Link to="/visions">Vision Board</Link> */}
         </div>
     );
 

@@ -39,11 +39,11 @@ const GoalForm = () => {
     };
 
     return (
-        <div>
-            <h1>Add a New Goal</h1>
-            <Link to="/">Return to dashboard</Link>
+        <div className="container">
+            <h1 className="goals-header">Add a New Goal</h1>
+            <span><Link to="/">Return to dashboard</Link></span>
             <form onSubmit={(e) => handleSubmit(e)}>
-                <div>
+                <div className="form-set">
                     <label htmlFor="title">Goal:</label>
                     <input
                         type="text"
@@ -51,8 +51,8 @@ const GoalForm = () => {
                         onChange={(e) => setTitle(e.target.value)}
                     />
                 </div>
-                {errors.title ? <p>{errors.title.message}</p> : null}
-                <div>
+                {errors.title ? <p className="error-message">{errors.title.message}</p> : null}
+                <div className="form-set">
                     <label htmlFor="type">Goal Type:</label>
                     <select name=""
                         id="type"
@@ -67,8 +67,8 @@ const GoalForm = () => {
                         <option value="Other">Other</option>
                     </select>
                 </div>
-                {errors.type ? <p>{errors.type.message}</p> : null}
-                <div>
+                {errors.type ? <p className="error-message">{errors.type.message}</p> : null}
+                <div className="form-set">
                     <label htmlFor="completeDate">Projected Complete Date:</label>
                     <input
                         type="text"
@@ -84,7 +84,7 @@ const GoalForm = () => {
                         onChange={(e) => setTaskOne(e.target.value)}
                     />
                 </div>
-                {errors.taskOne ? <p>{errors.taskOne.message}</p> : null}
+                {errors.taskOne ? <p className="error-message">{errors.taskOne.message}</p> : null}
                 <div>
                     <label className="visually-hidden" htmlFor="taskTwo">Task Two</label>
                     <input
@@ -99,7 +99,7 @@ const GoalForm = () => {
                     <input
                         type="text"
                         id="taskThree"
-                        // placeholder="optional"
+                        placeholder="optional"
                         onChange={(e) => setTaskThree(e.target.value)}
                     />
                 </div>
@@ -108,7 +108,7 @@ const GoalForm = () => {
                     <input
                         type="text"
                         id="taskFour"
-                        // placeholder="optional"
+                        placeholder="optional"
                         onChange={(e) => setTaskFour(e.target.value)}
                     />
                 </div>
@@ -117,7 +117,7 @@ const GoalForm = () => {
                     <input
                         type="text"
                         id="taskFive"
-                        // placeholder="optional"
+                        placeholder="optional"
                         onChange={(e) => setTaskFive(e.target.value)}
                     />
                 </div>

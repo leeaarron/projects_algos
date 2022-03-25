@@ -29,9 +29,10 @@ const DisplayOne = (props) => {
     };
 
     return (
-        <div>
-            <h1>{goalData.title}</h1>
+        <div className="container">
+            <h1 className="goals-header">{goalData.title}</h1>
             <Link to={'/'}>Dashboard</Link>
+            <div className="display-one-box">
             <p>Goal Type: {goalData.type}</p>
             <p>Projected Complete Date: {goalData.completeDate}</p>
             <p>Tasks to acheive goal:</p>
@@ -48,6 +49,7 @@ const DisplayOne = (props) => {
             <button
                 onClick={() => handleGoalReached(goalData._id)}
             >Goal Reached</button>
+            </div>
         </div>
     );
 

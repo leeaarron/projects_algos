@@ -2,19 +2,19 @@ body, html {
   margin: 0 auto;
   height: 100%;
   min-height: 100%;
-  padding-bottom: 300px;
+  padding-bottom: 350px;
   background-image: linear-gradient(to left, #464655 0%, #464655 25%, #805D93 75%, #805D93 100%);
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.App {
+/* .App { */
   /* text-align: center; */
   /* margin: 0 auto; */
   /* background-image: linear-gradient(to left, orange, orange 50%, green 50%, green);
   background-size: cover;
   background-repeat: no-repeat; */
-}
+/* } */
 
 /* .App-header {
   background-color: #282c34;
@@ -65,14 +65,12 @@ button:hover {
 /* -----Display All------ */
 
 ul {
-  /* margin: auto; */
   padding: 0px;
   text-align: center;
 }
 
 .goals-list {
   list-style-type: none;
-  /* margin: auto; */
   padding:0 px;
 }
 
@@ -104,6 +102,9 @@ ul {
 /* -----Display One------- */
 .goal-task-list {
   list-style-type: none;
+  border-radius: 7px;
+  background-Color:rgba(255,255,255,0.20);
+
 }
 
 .display-one-box {
@@ -115,24 +116,33 @@ ul {
   width: 300px;
   border-radius: 20px;
   text-align: center;
-  font-family: 'Poppins', sans-serif;
 }
 
+.display-data {
+  border-radius: 7px;
+  font-family: 'Poppins', sans-serif;
+  background-Color:rgba(255,255,255,0.20);
+}
 
 /* -----Vision Board------- */
 .visions-container {
   text-align: center;
   margin: 30px;
-  height: auto;
+  height: 400px;
   min-height: auto;
   border: 5px solid #CDA2B2;
-  border-radius: 25px;
+  border-radius: 15px;
+  overflow: scroll;
 }
 
 .vision-board-box {
   display: inline-block;
-  /* padding: 5px; */
   margin: 5px;
+}
+
+.inspo-form-header {
+  margin: 0px 0px 15px 0px;
+  text-align: center;
 }
 
 
@@ -169,4 +179,42 @@ label {
 .error-message {
   color: red;
   font-weight: bold;
+}
+
+.nav-bar {
+  background-color: #D1CCDC;
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-title {
+  margin: 10px;
+  font-variant: small-caps;
+  font-size: 20px;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav-list-items {
+  padding: 0px 10px 0px 10px;
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav-links, .nav-links:after {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.nav-links:hover {
+  color: #F45B69;
 }

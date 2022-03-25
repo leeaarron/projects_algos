@@ -3,9 +3,11 @@ import axios from "axios";
 import { Link } from "@reach/router";
 import { navigate } from "@reach/router";
 
+
 const DisplayAll = () => {
     const [goals, setGoals] = useState([]);
-    const [deletedBoolean, setDeletedBoolean] = useState(false);
+    const [quote, setQuote] = useState("");
+    // const [deletedBoolean, setDeletedBoolean] = useState(false);
     useEffect(() => {
         axios
             .get("http://localhost:8000/api/goal")
@@ -14,7 +16,9 @@ const DisplayAll = () => {
                 setGoals(response.data);
             })
             .catch((err) => console.log(err.response));
-    }, [deletedBoolean]);
+    }, []);
+
+
 
     // const handleDeleteGoal = (idFromBelow) => {
     //     axios
@@ -47,10 +51,7 @@ const DisplayAll = () => {
             <button
                 onClick={() => navigate('/new-goal')}
             >Add New Goal</button>
-            <button
-                onClick={() => navigate('/visions')}
-                >Vision Board</button>
-            {/* <Link to="/visions">Vision Board</Link> */}
+
         </div>
     );
 

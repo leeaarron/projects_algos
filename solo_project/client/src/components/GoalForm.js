@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link, navigate } from "@reach/router";
+import { navigate } from "@reach/router";
 
 const GoalForm = () => {
     const [title, setTitle] = useState("");
@@ -41,7 +41,6 @@ const GoalForm = () => {
     return (
         <div className="container">
             <h1 className="goals-header">Add a New Goal</h1>
-            <span><Link to="/">Return to dashboard</Link></span>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="form-set">
                     <label htmlFor="title">Goal:</label>
@@ -95,7 +94,7 @@ const GoalForm = () => {
                     />
                 </div>
                 <div>
-                <label className="visually-hidden" htmlFor="taskThree">Task Three</label>
+                    <label className="visually-hidden" htmlFor="taskThree">Task Three</label>
                     <input
                         type="text"
                         id="taskThree"
@@ -104,7 +103,7 @@ const GoalForm = () => {
                     />
                 </div>
                 <div>
-                <label className="visually-hidden" htmlFor="taskFour">Task Four</label>
+                    <label className="visually-hidden" htmlFor="taskFour">Task Four</label>
                     <input
                         type="text"
                         id="taskFour"
@@ -113,7 +112,7 @@ const GoalForm = () => {
                     />
                 </div>
                 <div>
-                <label className="visually-hidden" htmlFor="taskFive">Task Five</label>
+                    <label className="visually-hidden" htmlFor="taskFive">Task Five</label>
                     <input
                         type="text"
                         id="taskFive"

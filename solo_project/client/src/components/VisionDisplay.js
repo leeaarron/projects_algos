@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
-// import { Link } from "@reach/router";
-// import { navigate } from "@reach/router";
 
 
 const DisplayVisions = (props) => {
@@ -20,15 +18,15 @@ const DisplayVisions = (props) => {
 
 
     return (
-        <div className="visions-container">
+        <div className="container">
             <h2>Inspiration</h2>
-            <div>
-            {visionList.map((vision, index) => (
+            <div className="visions-container">
+                {visionList.map((vision, index) => (
                     <div className="vision-board-box" key={index}>
-                        <img style={{ height: "125px" }} src={`${vision.visionImgUrl}`} />
+                        <img style={{ height: "135px" }} src={`${vision.visionImgUrl}`} />
                     </div>
                 )
-            )}
+                )}
             </div>
         </div>
     );

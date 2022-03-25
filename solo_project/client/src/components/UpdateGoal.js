@@ -1,7 +1,6 @@
-import { Link, navigate } from "@reach/router";
+import { navigate } from "@reach/router";
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import { updateGoal } from "../../../server/controllers/goal.controller";
 
 const UpdateGoal = (props) => {
     const [title, setTitle] = useState("");
@@ -60,11 +59,10 @@ const UpdateGoal = (props) => {
     return (
         <div className="container">
             <h1 className="goals-header">Update Goal:</h1>
-            <Link to="/">Back to dashboard</Link>
             <h3>{title}</h3>
 
             <form onSubmit={(e) => handleUpdateGoal(e)}>
-                <div>
+                <div className="form-set">
                     <label htmlFor="title">Goal:</label>
                     <input
                         type="text"
@@ -74,7 +72,7 @@ const UpdateGoal = (props) => {
                     />
                 </div>
                 {errors.title ? <p className="error-message">{errors.title.message}</p> : null}
-                <div>
+                <div className="form-set">
                     <label htmlFor="type">Goal Type:</label>
                     <select name=""
                         id="type"
@@ -90,7 +88,7 @@ const UpdateGoal = (props) => {
                     </select>
                 </div>
                 {errors.type ? <p className="error-message">{errors.type.message}</p> : null}
-                <div>
+                <div className="form-set">
                     <label htmlFor="completeDate">Projected Complete Date:</label>
                     <input
                         type="text"
@@ -119,7 +117,7 @@ const UpdateGoal = (props) => {
                     />
                 </div>
                 <div>
-                <label className="visually-hidden" htmlFor="taskThree">Task Three</label>
+                    <label className="visually-hidden" htmlFor="taskThree">Task Three</label>
                     <input
                         type="text"
                         id="taskThree"
@@ -128,7 +126,7 @@ const UpdateGoal = (props) => {
                     />
                 </div>
                 <div>
-                <label className="visually-hidden" htmlFor="taskFour">Task Four</label>
+                    <label className="visually-hidden" htmlFor="taskFour">Task Four</label>
                     <input
                         type="text"
                         id="taskFour"
@@ -137,7 +135,7 @@ const UpdateGoal = (props) => {
                     />
                 </div>
                 <div>
-                <label className="visually-hidden" htmlFor="taskFive">Task Five</label>
+                    <label className="visually-hidden" htmlFor="taskFive">Task Five</label>
                     <input
                         type="text"
                         id="taskFive"
@@ -149,7 +147,7 @@ const UpdateGoal = (props) => {
 
 
                 <button type="submit">Update Goal</button>
-                
+
             </form>
 
         </div>
